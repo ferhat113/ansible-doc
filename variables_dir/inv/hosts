@@ -1,0 +1,9 @@
+[centos]
+centos1 ansible_host=172.19.0.5 ansible_user=ansible ansible_ssh_private_key_file=~/.ssh/id_rsa ansible_port=2222
+centos2 ansible_host=172.19.0.3 ansible_user=ansible ansible_ssh_private_key_file=~/.ssh/id_rsa
+centos3 ansible_host=172.19.0.6 ansible_user=ansible ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[ubuntu]
+ubuntu1 ansible_host=172.19.0.7 ansible_user=ansible ansible_ssh_private_key_file=~/.ssh/id_rsa
+ubuntu2 ansible_host=172.19.0.9 ansible_user=ansible ansible_ssh_private_key_file=~/.ssh/id_rsa
+ubuntu3 ansible_host=172.19.0.4 ansible_user=ansible ansible_ssh_private_key_file=~/.ssh/id_rsa

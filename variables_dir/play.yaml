@@ -1,0 +1,29 @@
+---
+- name: Connecting to CentOS hosts
+  hosts: all
+  become: True
+  vars:
+    host_message: "This is a message for the host"  # Replace with your desired message
+    grp_message: "This is a group message"  # Ensure this is defined as well
+  tasks:
+    - name: Write group message
+      copy:
+        content: "{{ grp_message }}"
+        dest: "/home/{{ ansible_user }}/grp_message"
+
+    - name: Write host message
+      copy:
+        content: "{{ host_message }}"
+        dest: "/home/{{ ansible_user }}/host_message"
+
+    - name: Ensure firewalld is installed
+      yum:
+        name: firewalld
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: Ensure UFW is installed on UBUNTU hosts
+      apt:
+        name: ufw
+        state: present
+      when: ansible_os_family == "Debian"
